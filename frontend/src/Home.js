@@ -15,28 +15,28 @@ function Home() {
   const handleEdit = (id) => {
     axios.put(`http://localhost:3001/get/update/${id}`)
       .then(result => {
-        // Update todos state with the modified todo
+       
         const updatedTodos = todos.map(todo => {
           if (todo._id === id) {
-            return { ...todo, done: true }; // Assuming you update the 'done' property
+            return { ...todo, done: true }; 
           }
           return todo;
         });
-        setTodos(updatedTodos); // Update todos state with the modified array
+        setTodos(updatedTodos);
       })
       .catch(err => console.log(err));
   };
   const handleDelete=(id)=>{
     axios.delete(`http://localhost:3001/delete/${id}`)
     .then(result => {
-      // Update todos state with the modified todo
+     
       const updatedTodos = todos.map(todo => {
         if (todo._id === id) {
-          return { ...todo, done: true }; // Assuming you update the 'done' property
+          return { ...todo, done: true }; 
         }
         return todo;
       });
-      setTodos(updatedTodos); // Update todos state with the modified array
+      setTodos(updatedTodos); 
     })
     .catch(err => console.log(err));
   }
